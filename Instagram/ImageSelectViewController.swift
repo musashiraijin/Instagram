@@ -8,8 +8,9 @@
 
 import UIKit
 
-class ImageSelectViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ImageSelectViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, AdobeUXImageEditorViewControllerDelegate {
     
+    // ライブラリボタンを押したときに呼ばれるメソッド
     @IBAction func handleLibraryButton(sender: AnyObject) {
         
         // ライブラリ（カメラロール）を指定してピッカーを開く
@@ -21,7 +22,7 @@ class ImageSelectViewController: UIViewController, UIImagePickerControllerDelega
         }
     }
     
-    
+    // カメラボタンを押したときに呼ばれるメソッド
     @IBAction func handleCameraButton(sender: AnyObject) {
         
         // カメラを指定してピッカーを開く
@@ -33,7 +34,7 @@ class ImageSelectViewController: UIViewController, UIImagePickerControllerDelega
         }
     }
     
-    
+    // キャンセルボタンを押したときに呼ばれるメソッド
     @IBAction func handleCancelButton(sender: AnyObject) {
         
         // 画面を閉じる
@@ -52,6 +53,7 @@ class ImageSelectViewController: UIViewController, UIImagePickerControllerDelega
         // Dispose of any resources that can be recreated.
     }
     
+    // 写真を撮影/選択したときに呼ばれるメソッド
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         
         if info[UIImagePickerControllerOriginalImage] != nil {
@@ -75,6 +77,24 @@ class ImageSelectViewController: UIViewController, UIImagePickerControllerDelega
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         // 閉じる
         picker.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
+    // AdobeImageEditorで加工が終わったときに呼ばれる
+    func photoEditor(editor: AdobeUXImageEditorViewController, finishedWithImage image: UIImage?) {
+        // 画像加工画面を閉じる
+        editor.dismissViewControllerAnimated(true, completion: nil)
+        
+        // 投稿の画面を開く
+        let postViewController = self.storyboard?.instantiateViewControllerWithIdentifier("Post") as! PostViewController
+        postViewController.image = image
+        presentViewController(postViewController, animated: true, completion: nil)
+    }
+    
+    // AdobeImageEditorで加工をキャンセルしたときに呼ばれる
+    func photoEditorCanceled(editor: AdobeUXImageEditorViewController) {
+        // エディタ画面を閉じる
+        editor.dismissViewControllerAnimated(true, completion: nil)
     }
 
     /*

@@ -71,8 +71,8 @@
                                     <action selector="handleCreateAcountButton:" destination="8yX-hD-bze" eventType="touchUpInside" id="431-hg-KT0"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="パスワード" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4as-w5-J6p">
-                                <rect key="frame" x="150" y="142" width="300" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="パスワード" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4as-w5-J6p">
+                                <rect key="frame" x="150" y="140" width="300" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="HQO-8T-cKD"/>
                                 </constraints>

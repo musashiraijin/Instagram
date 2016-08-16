@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -133,8 +134,58 @@
                     <view key="view" contentMode="scaleToFill" id="tFv-Oz-Fv8">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="35i-6u-akr">
+                                <rect key="frame" x="20" y="40" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="2s2-Fo-SfK"/>
+                                    <constraint firstAttribute="height" constant="120" id="XVZ-vS-3cS"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="キャプション" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C1C-Tw-Z8Z">
+                                <rect key="frame" x="183" y="130" width="377" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X4G-fR-Sbv">
+                                <rect key="frame" x="150" y="230" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="uMy-cV-abR"/>
+                                </constraints>
+                                <state key="normal" title="キャンセル" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="handleCancelButton:" destination="8ui-k9-w7Z" eventType="touchUpInside" id="Aah-MD-HsX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wyg-ue-4Ac">
+                                <rect key="frame" x="150" y="180" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="UoR-9c-nA1"/>
+                                </constraints>
+                                <state key="normal" title="投稿" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="handlePostButton:" destination="8ui-k9-w7Z" eventType="touchUpInside" id="CSt-Ul-VWb"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="C1C-Tw-Z8Z" firstAttribute="leading" secondItem="35i-6u-akr" secondAttribute="trailing" constant="43" id="9qa-8z-yNm"/>
+                            <constraint firstItem="C1C-Tw-Z8Z" firstAttribute="bottom" secondItem="35i-6u-akr" secondAttribute="bottom" id="FLE-dh-SJ3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="C1C-Tw-Z8Z" secondAttribute="trailing" constant="20" id="Qav-TS-anV"/>
+                            <constraint firstItem="X4G-fR-Sbv" firstAttribute="top" secondItem="wyg-ue-4Ac" secondAttribute="bottom" constant="10" id="Sfk-XY-MRZ"/>
+                            <constraint firstItem="X4G-fR-Sbv" firstAttribute="centerX" secondItem="tFv-Oz-Fv8" secondAttribute="centerX" id="WLI-uu-tsq"/>
+                            <constraint firstItem="35i-6u-akr" firstAttribute="leading" secondItem="tFv-Oz-Fv8" secondAttribute="leadingMargin" id="g5G-Uy-CH8"/>
+                            <constraint firstItem="wyg-ue-4Ac" firstAttribute="top" secondItem="35i-6u-akr" secondAttribute="bottom" constant="20" id="kSI-SF-7AW"/>
+                            <constraint firstItem="C1C-Tw-Z8Z" firstAttribute="leading" secondItem="35i-6u-akr" secondAttribute="trailing" constant="43" id="qdg-9e-BKg"/>
+                            <constraint firstItem="wyg-ue-4Ac" firstAttribute="centerX" secondItem="tFv-Oz-Fv8" secondAttribute="centerX" id="riU-0E-NRv"/>
+                            <constraint firstItem="35i-6u-akr" firstAttribute="top" secondItem="8Ur-fU-IKb" secondAttribute="bottom" constant="20" id="s5A-ua-Cwa"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="35i-6u-akr" id="JnP-Qy-NHN"/>
+                        <outlet property="textField" destination="C1C-Tw-Z8Z" id="UoU-dW-p3Y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XJP-tA-aKY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

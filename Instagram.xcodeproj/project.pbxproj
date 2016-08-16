@@ -35,6 +35,9 @@
 		2FD6EE5E1D61DF30007E66E1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD6EE5D1D61DF30007E66E1 /* StoreKit.framework */; };
 		2FD6EE601D61DF9D007E66E1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD6EE5F1D61DF9D007E66E1 /* UIKit.framework */; };
 		2FD6EE621D61DFDE007E66E1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD6EE611D61DFDE007E66E1 /* Foundation.framework */; };
+		2FD6EE681D62B5AB007E66E1 /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD6EE671D62B5AB007E66E1 /* PostData.swift */; };
+		2FD6EE6B1D62B678007E66E1 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD6EE691D62B678007E66E1 /* PostTableViewCell.swift */; };
+		2FD6EE6C1D62B678007E66E1 /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FD6EE6A1D62B678007E66E1 /* PostTableViewCell.xib */; };
 		9127D2C2469951092BD26CC0 /* Pods_Instagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46BB5DDFBAF6643791950425 /* Pods_Instagram.framework */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +76,9 @@
 		2FD6EE5F1D61DF9D007E66E1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2FD6EE611D61DFDE007E66E1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2FD6EE641D61ED3D007E66E1 /* Instagram-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Instagram-Bridging-Header.h"; sourceTree = "<group>"; };
+		2FD6EE671D62B5AB007E66E1 /* PostData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostData.swift; sourceTree = "<group>"; };
+		2FD6EE691D62B678007E66E1 /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		2FD6EE6A1D62B678007E66E1 /* PostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
 		46BB5DDFBAF6643791950425 /* Pods_Instagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Instagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCF4E3E15E84F94D3C4DF4A0 /* Pods-Instagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-Instagram/Pods-Instagram.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -159,6 +165,9 @@
 				2FD6EE331D615CB7007E66E1 /* ImageSelectViewController.swift */,
 				2FD6EE351D615CCC007E66E1 /* PostViewController.swift */,
 				2FD6EE371D615CE2007E66E1 /* SettingViewController.swift */,
+				2FD6EE671D62B5AB007E66E1 /* PostData.swift */,
+				2FD6EE691D62B678007E66E1 /* PostTableViewCell.swift */,
+				2FD6EE6A1D62B678007E66E1 /* PostTableViewCell.xib */,
 				2FD6EE211D615A08007E66E1 /* Main.storyboard */,
 				2FD6EE241D615A08007E66E1 /* Assets.xcassets */,
 				2FD6EE261D615A08007E66E1 /* LaunchScreen.storyboard */,
@@ -242,6 +251,7 @@
 				2FD6EE461D61D6F2007E66E1 /* AdobeCreativeSDKImageResources.bundle in Resources */,
 				2FD6EE421D61D618007E66E1 /* AdobeCreativeSDKCoreResources.bundle in Resources */,
 				2FD6EE3A1D61859E007E66E1 /* GoogleService-Info.plist in Resources */,
+				2FD6EE6C1D62B678007E66E1 /* PostTableViewCell.xib in Resources */,
 				2FD6EE251D615A08007E66E1 /* Assets.xcassets in Resources */,
 				2FD6EE231D615A08007E66E1 /* Main.storyboard in Resources */,
 			);
@@ -303,11 +313,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FD6EE361D615CCC007E66E1 /* PostViewController.swift in Sources */,
+				2FD6EE681D62B5AB007E66E1 /* PostData.swift in Sources */,
 				2FD6EE301D615C89007E66E1 /* LoginViewController.swift in Sources */,
 				2FD6EE201D615A08007E66E1 /* ViewController.swift in Sources */,
 				2FD6EE1E1D615A08007E66E1 /* AppDelegate.swift in Sources */,
 				2FD6EE341D615CB7007E66E1 /* ImageSelectViewController.swift in Sources */,
 				2FD6EE3C1D618B54007E66E1 /* Const.swift in Sources */,
+				2FD6EE6B1D62B678007E66E1 /* PostTableViewCell.swift in Sources */,
 				2FD6EE381D615CE2007E66E1 /* SettingViewController.swift in Sources */,
 				2FD6EE321D615C9E007E66E1 /* HomeViewController.swift in Sources */,
 			);

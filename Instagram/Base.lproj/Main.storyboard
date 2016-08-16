@@ -116,8 +116,23 @@
                     <view key="view" contentMode="scaleToFill" id="Szk-zM-ffi">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PVL-nA-Mb0">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="PVL-nA-Mb0" secondAttribute="trailing" id="5yv-x2-Jrx"/>
+                            <constraint firstItem="ZJa-DE-6tb" firstAttribute="top" secondItem="PVL-nA-Mb0" secondAttribute="bottom" id="FHU-ip-Ba7"/>
+                            <constraint firstItem="PVL-nA-Mb0" firstAttribute="leading" secondItem="Szk-zM-ffi" secondAttribute="leading" id="iIo-Ne-QZT"/>
+                            <constraint firstItem="PVL-nA-Mb0" firstAttribute="top" secondItem="q1E-ZJ-LS3" secondAttribute="bottom" id="ycE-LM-NQN"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="PVL-nA-Mb0" id="yRW-4c-ptM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rlT-me-vm2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

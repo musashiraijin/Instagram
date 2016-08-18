@@ -22,6 +22,9 @@ class PostData: NSObject {
     var likes: [String] = []
     var isLiked: Bool = false
     
+    // 投稿されたコメント
+    var comments: String?
+    
     init(snapshot: FIRDataSnapshot, myId: String) {
         id = snapshot.key
         
@@ -33,6 +36,9 @@ class PostData: NSObject {
         name = valueDictionary["name"] as? String
         
         caption = valueDictionary["caption"] as? String
+        
+        // コメントの辞書
+        comments = valueDictionary["comments"] as? String
         
         if let likes = valueDictionary["likes"] as? [String] {
             self.likes = likes

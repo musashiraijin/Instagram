@@ -57,6 +57,9 @@
                             <constraint firstAttribute="width" constant="95" id="B4l-L1-r6K"/>
                         </constraints>
                         <state key="normal" title="コメント投稿"/>
+                        <connections>
+                            <action selector="commentsInput:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="FV5-Rs-5BP"/>
+                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r0T-Tz-ztu">
                         <rect key="frame" x="68" y="440" width="40" height="40"/>

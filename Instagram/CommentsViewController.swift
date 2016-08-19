@@ -16,8 +16,6 @@ class CommentsViewController: UIViewController {
     
     var image: UIImage!
     
-    // コメント投稿時に投稿する画像を表示
-    @IBOutlet weak var commentsImageView: UIImageView!
     
     // コメント投稿者名
     @IBOutlet weak var commentsInputName: UITextField!

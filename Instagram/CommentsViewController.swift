@@ -19,9 +19,15 @@ class CommentsViewController: UIViewController {
     // コメント投稿時に投稿する画像を表示
     @IBOutlet weak var commentsImageView: UIImageView!
     
+    // コメント投稿者名
+    @IBOutlet weak var commentsInputName: UITextField!
+    
     // コメント文
-    @IBOutlet weak var commentsTextView: UITextView!
+    @IBOutlet weak var commentsTextField: UITextField!
+    
+    
 
+    
     @IBAction func commentsPostButton(sender: AnyObject) {
         
         let postRef = FIRDatabase.database().reference().child(CommonConst.PostPATH)
@@ -30,14 +36,15 @@ class CommentsViewController: UIViewController {
 //        let imageData = UIImageJPEGRepresentation(imageView.image!, 0.5)
         
         // NSUserDfaultsから表示名を取得する
-        let ud = NSUserDefaults.standardUserDefaults()
-        let name = ud.objectForKey(CommonConst.DisplayNameKey) as! String
+//        let ud = NSUserDefaults.standardUserDefaults()
+//        let commentsName = ud.objectForKey(CommonConst.DisplayNameKey) as! String
         
         // 時間を取得する
 //        let time = NSDate.timeIntervalSinceReferenceDate()
         
+        
         // 辞書を作成してFirebaseに保存する
-        let postData = ["name": name, "comments": commentsTextView.text!]
+        let postData = ["commentsName": commentsInputName.text!, "comments": commentsTextField.text!]
         postRef.childByAutoId().setValue(postData)
         
         // HUDで投稿完了を表示する
@@ -59,7 +66,7 @@ class CommentsViewController: UIViewController {
         super.viewDidLoad()
         
         // 受け取った画像をImageViewに設定する
-        commentsImageView.image = image
+//        commentsImageView.image = image
 
         // Do any additional setup after loading the view.
     }

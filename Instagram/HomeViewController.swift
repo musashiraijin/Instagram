@@ -91,7 +91,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.likeButton.addTarget(self, action:#selector(handleButton(_:event:)), forControlEvents:  UIControlEvents.TouchUpInside)
         
         // セル内のコメント投稿ボタンのアクションをソースコードで設定する
-        cell.commentsInput.addTarget(self, action:#selector(handleButton(_:event:)), forControlEvents:  UIControlEvents.TouchUpInside)
+        cell.commentsInput.addTarget(self, action:#selector(commentsButton(_:event:)), forControlEvents:  UIControlEvents.TouchUpInside)
         
         // UILabelの行数が変わっている可能性があるので再描画させる
         cell.layoutIfNeeded()
@@ -153,6 +153,19 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
 
+    func commentsButton(sender: UIButton, event:UIEvent) {
+        
+        // 次の遷移先のViewControllerインスタンスを生成する
+        let vc = CommentsViewController()
+        
+        // presentViewControllerメソッドで遷移する
+        // ここで、animatedをtrueにするとアニメーションしながら遷移できる
+        self.presentViewController(vc, animated: true, completion: nil)
+        
+ 
+    }
+
+    
     /*
     // MARK: - Navigation
 

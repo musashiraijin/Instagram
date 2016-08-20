@@ -90,6 +90,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // セル内のボタンのアクションをソースコードで設定する
         cell.likeButton.addTarget(self, action:#selector(handleButton(_:event:)), forControlEvents:  UIControlEvents.TouchUpInside)
         
+        // セル内のコメント投稿ボタンのアクションをソースコードで設定する
+        cell.commentsInput.addTarget(self, action:#selector(handleButton(_:event:)), forControlEvents:  UIControlEvents.TouchUpInside)
+        
         // UILabelの行数が変わっている可能性があるので再描画させる
         cell.layoutIfNeeded()
         
@@ -139,9 +142,11 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             let caption = postData.caption
             let time = (postData.date?.timeIntervalSinceReferenceDate)! as NSTimeInterval
             let likes = postData.likes
+            let commentsName = postData.commentsName
+            let comments = postData.comments
             
             // 辞書を作成してFirebaseに保存する
-            let post = ["caption": caption!, "image": imageString!, "name": name!, "time": time, "likes": likes]
+            let post = ["caption": caption!, "image": imageString!, "name": name!, "time": time, "likes": likes, "commentsName": commentsName!, "comments": comments!]
             let postRef = FIRDatabase.database().reference().child(CommonConst.PostPATH)
             postRef.child(postData.id!).setValue(post)
         }

@@ -19,13 +19,18 @@ class PostTableViewCell: UITableViewCell {
     // コメント表示欄
     @IBOutlet weak var commentsLabel: UILabel!
     
+    // コメント投稿ボタンのアウトレット
+    @IBOutlet weak var commentsInput: UIButton!
+    
+    
+    
     // コメント投稿ボタンを押した時に CommentsViewControllerに遷移する
-    @IBAction func commentsInput(sender: AnyObject) {
+//    @IBAction func commentsInput(sender: AnyObject) {
         
-        let second = CommentsViewController()
-        self.presentViewController(CommentsViewController, animated: true, completion: nil)
-        
-    }
+//        let second = CommentsViewController()
+//        self.presentViewController(CommentsViewController, animated: true, completion: nil)
+ 
+//    }
     
     
 
@@ -68,7 +73,9 @@ class PostTableViewCell: UITableViewCell {
         }
         
         // コメント表示
-        self.commentsLabel.text = "\(postData.commentsName!) : \(postData.comments!)"
+        let commentsNameData = postData.commentsName
+        let commentsData = postData.comments
+        commentsLabel.text = "\(commentsNameData) : \(commentsData)"
         
         super.layoutSubviews()
     }

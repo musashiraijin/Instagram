@@ -57,9 +57,6 @@
                             <constraint firstAttribute="width" constant="95" id="B4l-L1-r6K"/>
                         </constraints>
                         <state key="normal" title="コメント投稿"/>
-                        <connections>
-                            <action selector="commentsInput:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="FV5-Rs-5BP"/>
-                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r0T-Tz-ztu">
                         <rect key="frame" x="68" y="440" width="40" height="40"/>
@@ -97,6 +94,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="captionLabel" destination="Xhp-Pd-YA5" id="TIa-bk-fzy"/>
+                <outlet property="commentsInput" destination="pMH-zD-jQN" id="f2q-s2-FuU"/>
                 <outlet property="commentsLabel" destination="EcY-1P-cil" id="a88-wo-61X"/>
                 <outlet property="dateLabel" destination="gdm-HD-2zk" id="79J-Zo-NBe"/>
                 <outlet property="likeButton" destination="TIo-CQ-i8Q" id="Ec7-rW-pCU"/>

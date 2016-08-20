@@ -145,8 +145,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             let commentsName = postData.commentsName
             let comments = postData.comments
             
+                       
             // 辞書を作成してFirebaseに保存する
-            let post = ["caption": caption!, "image": imageString!, "name": name!, "time": time, "likes": likes, "commentsName": commentsName!, "comments": comments!]
+            let post = ["caption": caption!, "image": imageString!, "name": name!, "time": time, "likes": likes, "commentsName": commentsName, "comments": comments]
             let postRef = FIRDatabase.database().reference().child(CommonConst.PostPATH)
             postRef.child(postData.id!).setValue(post)
         }

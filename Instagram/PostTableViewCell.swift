@@ -73,21 +73,21 @@ class PostTableViewCell: UITableViewCell {
         }
         
         // コメント表示
-        var commentsNameData = postData.commentsName
-        var commentsData = postData.comments
+        let commentsNameData = postData.commentsName
+        let commentsData = postData.comments
         
         // commentsNameDataとcommentsDataがnilの時の表示
-        if (commentsNameData == nil) || (commentsData == nil) {
-            
+/*        if (commentsNameData == nil) || (commentsData == nil) {
+        
             commentsNameData = "０人"
             commentsData = "コメントなし"
             commentsLabel.text = "\(commentsNameData) : \(commentsData)"
             
         } else {
-            
+*/
             commentsLabel.text = "\(commentsNameData) : \(commentsData)"
             
-        }
+//        }
         
         
         super.layoutSubviews()

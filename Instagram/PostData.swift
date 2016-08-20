@@ -23,10 +23,10 @@ class PostData: NSObject {
     var isLiked: Bool = false
     
     // コメント投稿者名
-    var commentsName: String?
+    var commentsName: String = "０人"
     
     // 投稿されたコメント
-    var comments: String?
+    var comments: String = "コメントなし"
     
     
     init(snapshot: FIRDataSnapshot, myId: String) {
@@ -45,10 +45,14 @@ class PostData: NSObject {
         
         
         // コメント入力した人の表示名
-        commentsName = valueDictionary["commentsName"] as? String
+        if let commentsName = valueDictionary["commentsName"] as? String {
+            self.commentsName = commentsName
+        }
 
         // 入力されたコメントの辞書
-        comments = valueDictionary["comments"] as? String
+        if let comments = valueDictionary["comments"] as? String {
+            self.comments = comments
+        }
         
         if let likes = valueDictionary["likes"] as? [String] {
             self.likes = likes

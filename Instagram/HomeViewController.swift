@@ -156,10 +156,14 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     func commentsButton(sender: UIButton, event:UIEvent) {
         
+//        let vc = storyboard?.instantiateViewControllerWithIdentifier("Comments") //as! CommentsViewController
+//        vc.image = postArray.image
+//        self.presentViewController(vc!, animated: true, completion: nil)
+        
+        
         
         // ストーリーボードで設定したCommentsViewControllerを生成
-        let vc = storyboard?.instantiateViewControllerWithIdentifier("comments")
-
+        let vc = storyboard?.instantiateViewControllerWithIdentifier("Comments")
         
         // presentViewControllerメソッドで遷移する
         // ここで、animatedをtrueにするとアニメーションしながら遷移できる

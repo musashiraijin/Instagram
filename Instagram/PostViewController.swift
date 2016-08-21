@@ -27,7 +27,7 @@ class PostViewController: UIViewController {
         // ImageViewから画像を取得する
         let imageData = UIImageJPEGRepresentation(imageView.image!, 0.5)
         
-        // NSUserDfaultsから表示名を取得する
+        // NSUserDefaultsから表示名を取得する
         let ud = NSUserDefaults.standardUserDefaults()
         let name = ud.objectForKey(CommonConst.DisplayNameKey) as! String
         

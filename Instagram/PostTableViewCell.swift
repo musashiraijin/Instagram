@@ -22,17 +22,6 @@ class PostTableViewCell: UITableViewCell {
     // コメント投稿ボタンのアウトレット
     @IBOutlet weak var commentsInput: UIButton!
     
-    
-    
-    // コメント投稿ボタンを押した時に CommentsViewControllerに遷移する
-//    @IBAction func commentsInput(sender: AnyObject) {
-        
-//        let second = CommentsViewController()
-//        self.presentViewController(CommentsViewController, animated: true, completion: nil)
- 
-//    }
-    
-    
 
     
     var postData: PostData!

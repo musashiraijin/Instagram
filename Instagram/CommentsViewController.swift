@@ -25,7 +25,6 @@ class CommentsViewController: UIViewController {
     var imageView: UIImageView!
     var textField: UITextField!
     
-    var postArray: [PostData] = []
 
     
     @IBAction func commentsPostButton(sender: AnyObject) {
@@ -66,7 +65,7 @@ class CommentsViewController: UIViewController {
         super.viewDidLoad()
         
         // 受け取った画像をImageViewに設定する
- //       imageView.image = image
+        var image = ImageView
 
         // Do any additional setup after loading the view.
     }

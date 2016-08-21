@@ -27,7 +27,7 @@
         <!--Comments View Controller-->
         <scene sceneID="tIP-dh-67a">
             <objects>
-                <viewController storyboardIdentifier="comments" id="HGT-Dr-KmZ" customClass="CommentsViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Comments" id="HGT-Dr-KmZ" customClass="CommentsViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Mdy-ef-g46"/>
                         <viewControllerLayoutGuide type="bottom" id="d7b-jg-ijb"/>

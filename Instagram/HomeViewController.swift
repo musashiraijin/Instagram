@@ -156,8 +156,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     func commentsButton(sender: UIButton, event:UIEvent) {
         
-        // 次の遷移先のViewControllerインスタンスを生成する
-//        let vc = CommentsViewController()
         
         // ストーリーボードで設定したCommentsViewControllerを生成
         let vc = storyboard?.instantiateViewControllerWithIdentifier("comments")

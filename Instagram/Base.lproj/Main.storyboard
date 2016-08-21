@@ -39,7 +39,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5le-MI-9jq">
                                 <rect key="frame" x="150" y="160" width="300" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="eoy-ku-hUf"/>
+                                    <constraint firstAttribute="width" constant="300" id="Ruy-XM-HFc"/>
                                 </constraints>
                                 <state key="normal" title="コメント投稿" backgroundImage="btn"/>
                                 <connections>
@@ -49,7 +49,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DI7-nE-bKC">
                                 <rect key="frame" x="150" y="210" width="300" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="WK7-dA-cdE"/>
+                                    <constraint firstAttribute="width" constant="300" id="ZIq-3h-9iU"/>
                                 </constraints>
                                 <state key="normal" title="キャンセル" backgroundImage="btn"/>
                                 <connections>
@@ -57,30 +57,29 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="あなたの表示名を入力" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dWq-BS-X7z">
-                                <rect key="frame" x="120" y="70" width="360" height="30"/>
+                                <rect key="frame" x="70" y="70" width="460" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="コメントを入力" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D0v-7l-7Lt">
-                                <rect key="frame" x="120" y="110" width="360" height="30"/>
+                                <rect key="frame" x="70" y="110" width="460" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="DI7-nE-bKC" firstAttribute="top" secondItem="5le-MI-9jq" secondAttribute="bottom" constant="10" id="2hv-e2-Axc"/>
-                            <constraint firstItem="dWq-BS-X7z" firstAttribute="leading" secondItem="iVO-QW-kFX" secondAttribute="leadingMargin" constant="100" id="9VI-hU-QFa"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="D0v-7l-7Lt" secondAttribute="trailing" constant="100" id="JFv-Nd-yLU"/>
-                            <constraint firstItem="DI7-nE-bKC" firstAttribute="centerX" secondItem="iVO-QW-kFX" secondAttribute="centerX" id="Lfj-HM-SEh"/>
-                            <constraint firstItem="D0v-7l-7Lt" firstAttribute="centerX" secondItem="iVO-QW-kFX" secondAttribute="centerX" id="ZgH-Pl-yih"/>
-                            <constraint firstItem="5le-MI-9jq" firstAttribute="centerX" secondItem="iVO-QW-kFX" secondAttribute="centerX" id="gVu-CI-z6y"/>
-                            <constraint firstItem="D0v-7l-7Lt" firstAttribute="top" secondItem="dWq-BS-X7z" secondAttribute="bottom" constant="10" id="iyF-hZ-DHJ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="dWq-BS-X7z" secondAttribute="trailing" constant="100" id="kHc-qr-P8E"/>
-                            <constraint firstItem="dWq-BS-X7z" firstAttribute="centerX" secondItem="iVO-QW-kFX" secondAttribute="centerX" id="tue-vt-EIe"/>
-                            <constraint firstItem="D0v-7l-7Lt" firstAttribute="leading" secondItem="iVO-QW-kFX" secondAttribute="leadingMargin" constant="100" id="wg8-I0-eyB"/>
-                            <constraint firstItem="dWq-BS-X7z" firstAttribute="top" secondItem="Mdy-ef-g46" secondAttribute="bottom" constant="50" id="yaS-0p-YdI"/>
-                            <constraint firstItem="5le-MI-9jq" firstAttribute="top" secondItem="D0v-7l-7Lt" secondAttribute="bottom" constant="20" id="zQg-sh-7HE"/>
+                            <constraint firstItem="5le-MI-9jq" firstAttribute="top" secondItem="D0v-7l-7Lt" secondAttribute="bottom" constant="20" id="2k4-88-822"/>
+                            <constraint firstItem="DI7-nE-bKC" firstAttribute="centerX" secondItem="dWq-BS-X7z" secondAttribute="centerX" id="74q-EF-8nN"/>
+                            <constraint firstItem="D0v-7l-7Lt" firstAttribute="centerX" secondItem="dWq-BS-X7z" secondAttribute="centerX" id="HoI-HP-N4B"/>
+                            <constraint firstItem="dWq-BS-X7z" firstAttribute="leading" secondItem="iVO-QW-kFX" secondAttribute="leadingMargin" constant="50" id="KZT-Mu-nSI"/>
+                            <constraint firstItem="5le-MI-9jq" firstAttribute="centerX" secondItem="dWq-BS-X7z" secondAttribute="centerX" id="Nc4-bV-vAS"/>
+                            <constraint firstItem="DI7-nE-bKC" firstAttribute="top" secondItem="5le-MI-9jq" secondAttribute="bottom" constant="10" id="PVg-G9-M0r"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="D0v-7l-7Lt" secondAttribute="trailing" constant="50" id="UVi-Rr-hyp"/>
+                            <constraint firstItem="dWq-BS-X7z" firstAttribute="top" secondItem="Mdy-ef-g46" secondAttribute="bottom" constant="50" id="gZJ-T5-r5f"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dWq-BS-X7z" secondAttribute="trailing" constant="50" id="qhi-wh-cua"/>
+                            <constraint firstItem="D0v-7l-7Lt" firstAttribute="leading" secondItem="iVO-QW-kFX" secondAttribute="leadingMargin" constant="50" id="tKC-0J-3WD"/>
+                            <constraint firstItem="D0v-7l-7Lt" firstAttribute="top" secondItem="dWq-BS-X7z" secondAttribute="bottom" constant="10" id="xc6-xi-8WJ"/>
                         </constraints>
                     </view>
                     <connections>

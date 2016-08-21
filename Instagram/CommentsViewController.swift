@@ -24,7 +24,8 @@ class CommentsViewController: UIViewController {
     var image: UIImage?
     var imageView: UIImageView!
     var textField: UITextField!
-
+    
+    var postArray: [PostData] = []
 
     
     @IBAction func commentsPostButton(sender: AnyObject) {
@@ -35,15 +36,14 @@ class CommentsViewController: UIViewController {
         let imageData = UIImageJPEGRepresentation(imageView.image!, 0.5)
         
         // NSUserDfaultsから表示名を取得する
-//        let ud = NSUserDefaults.standardUserDefaults()
-//        let name = ud.objectForKey(CommonConst.DisplayNameKey) as! String
+        let ud = NSUserDefaults.standardUserDefaults()
+        let name = ud.objectForKey(CommonConst.DisplayNameKey) as! String
         
         // 時間を取得する
-//        let time = NSDate.timeIntervalSinceReferenceDate()
-        
+        let time = NSDate.timeIntervalSinceReferenceDate()
         
         // 辞書を作成してFirebaseに保存する
-        let postData = ["commentsName": commentsInputName.text!, "comments": commentsTextField.text!, "image": imageData!.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)]
+        let postData = ["caption": textField.text!, "image": imageData!.base64EncodedStringWithOptions(.Encoding64CharacterLineLength), "name": name, "time": time, "commentsName": commentsInputName.text!, "comments": commentsTextField.text!]
         
         postRef.childByAutoId().setValue(postData)
         
@@ -66,7 +66,7 @@ class CommentsViewController: UIViewController {
         super.viewDidLoad()
         
         // 受け取った画像をImageViewに設定する
-        imageView.image = image
+ //       imageView.image = image
 
         // Do any additional setup after loading the view.
     }

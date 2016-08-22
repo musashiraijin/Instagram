@@ -64,9 +64,8 @@ class CommentsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // 受け取った画像をImageViewに設定する
-        var image = ImageView
-
+        imageView.image = image
+        
         // Do any additional setup after loading the view.
     }
 

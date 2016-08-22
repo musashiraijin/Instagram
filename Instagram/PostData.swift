@@ -36,8 +36,6 @@ class PostData: NSObject {
         
         imageString = valueDictionary["image"] as? String
         
-        // デバッグ用
-//        print("\(valueDictionary.description)")
         
         image = UIImage(data: NSData(base64EncodedString: imageString!, options: .IgnoreUnknownCharacters)!)
         

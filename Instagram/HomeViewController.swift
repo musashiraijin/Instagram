@@ -17,6 +17,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var tableView: UITableView!
 
     var postArray: [PostData] = []
+    var imageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -156,18 +157,34 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     func commentsButton(sender: UIButton, event:UIEvent) {
         
-//        let vc = storyboard?.instantiateViewControllerWithIdentifier("Comments") //as! CommentsViewController
-//        vc.image = postArray.image
-//        self.presentViewController(vc!, animated: true, completion: nil)
+        // タップされたセルのインデックスを求める
+        let touch = event.allTouches()?.first
+        let point = touch!.locationInView(self.tableView)
+        let indexPath = tableView.indexPathForRowAtPoint(point)
         
+        // 配列からタップされたインデックスのデータを取り出す
+        let postData = postArray[indexPath!.row]
+        
+        let imageString = postData.imageString
+        
+        let image: NSData? = NSData(base64EncodedString:imageString!, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
+        
+        
+//        let image = postData.imageString!
+        
+        let commentsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("Comments") as! CommentsViewController
+        
+        commentsViewController.image = imageView.image
+        
+        presentViewController(commentsViewController, animated: true, completion: nil)
         
         
         // ストーリーボードで設定したCommentsViewControllerを生成
-        let vc = storyboard?.instantiateViewControllerWithIdentifier("Comments")
+//        let vc = storyboard?.instantiateViewControllerWithIdentifier("Comments")
         
         // presentViewControllerメソッドで遷移する
         // ここで、animatedをtrueにするとアニメーションしながら遷移できる
-        self.presentViewController(vc!, animated: true, completion: nil)
+//        self.presentViewController(vc!, animated: true, completion: nil)
 
  
     }

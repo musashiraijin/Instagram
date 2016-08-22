@@ -174,6 +174,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // CommentsViewControllerに遷移する
         let storyboard: UIStoryboard = self.storyboard!
         let nextView = storyboard.instantiateViewControllerWithIdentifier("Comments") as! CommentsViewController
+        
+        CommentsViewController.image = image
+        
         self.presentViewController(nextView, animated: true, completion: nil)
 
  

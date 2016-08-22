@@ -167,10 +167,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         let imageString = postData.imageString
         
+        // imageStringのStringデータを画像にデコードする
         let image: NSData? = NSData(base64EncodedString:imageString!, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
         
-        
-//        let image = postData.imageString!
         
         let commentsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("Comments") as! CommentsViewController
         

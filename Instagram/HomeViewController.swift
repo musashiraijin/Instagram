@@ -171,19 +171,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let image: NSData? = NSData(base64EncodedString:imageString!, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
         
         
-        let commentsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("Comments") as! CommentsViewController
-        
-        commentsViewController.image = imageView.image
-        
-        presentViewController(commentsViewController, animated: true, completion: nil)
-        
-        
-        // ストーリーボードで設定したCommentsViewControllerを生成
-//        let vc = storyboard?.instantiateViewControllerWithIdentifier("Comments")
-        
-        // presentViewControllerメソッドで遷移する
-        // ここで、animatedをtrueにするとアニメーションしながら遷移できる
-//        self.presentViewController(vc!, animated: true, completion: nil)
+        // CommentsViewControllerに遷移する
+        let storyboard: UIStoryboard = self.storyboard!
+        let nextView = storyboard.instantiateViewControllerWithIdentifier("Comments") as! CommentsViewController
+        self.presentViewController(nextView, animated: true, completion: nil)
 
  
     }

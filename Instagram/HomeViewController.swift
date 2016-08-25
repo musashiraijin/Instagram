@@ -168,14 +168,14 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let indexPathSegue = indexPath
         
         // 配列からタップされたインデックスのデータを取り出す
-//        let postData = postArray[indexPath!.row]
+//        let postData = postArray[indexPathSegue!.row]
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
         
         let commentsViewController:CommentsViewController = segue.destinationViewController as! CommentsViewController
         
-        commentsViewController.postArray[indexPathSegue.row] = self.postArray[indexPathSegue.row]
+        commentsViewController.postArray[indexPathSegue.row] = self.postArray[indexPathSegue!.row]
         
     }
     

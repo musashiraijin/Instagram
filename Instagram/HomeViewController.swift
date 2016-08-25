@@ -160,18 +160,22 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         performSegueWithIdentifier("cellSegue", sender: nil)
         
+        // タップされたセルのインデックスを求める
         let touch = event.allTouches()?.first
         let point = touch!.locationInView(self.tableView)
         let indexPath = tableView.indexPathForRowAtPoint(point)
         
         let indexPathSegue = indexPath
+        
+        // 配列からタップされたインデックスのデータを取り出す
+//        let postData = postArray[indexPath!.row]
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
         
         let commentsViewController:CommentsViewController = segue.destinationViewController as! CommentsViewController
         
-        commentsViewController.indexPathSegue = self.indexPathSegue
+        commentsViewController.postArray[indexPathSegue.row] = self.postArray[indexPathSegue.row]
         
     }
     

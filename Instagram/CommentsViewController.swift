@@ -36,12 +36,20 @@ class CommentsViewController: UIViewController {
         
         let postRef = FIRDatabase.database().reference()
         
-        let postData = postArray[indexPathSegue.row]
+        let postData = postArray[indexPath!.row]
+        
+        let imageString = postData.imageString
+        let name = postData.name
+        let caption = postData.caption
+        let time = (postData.date?.timeIntervalSinceReferenceDate)! as NSTimeInterval
+        let likes = postData.likes
+        let commentsName = postData.commentsName
+        let comments = postData.comments
         
         // 辞書を作成してFirebaseに保存する
-        let postData = ["caption": textField.text!, "image": image!, "name": name!, "commentsName": commentsInputName.text!, "comments": commentsTextField.text!]
-        
-        postRef.child("posts").childByAutoId().setValue(postData)
+        let post = ["caption": caption!, "image": imageString!, "name": name!, "time": time, "likes": likes, "commentsName": commentsName, "comments": comments]
+        let postRef = FIRDatabase.database().reference().child(CommonConst.PostPATH)
+        postRef.child(postData.id!).setValue(post)
         
         
         // HUDで投稿完了を表示する

@@ -33,7 +33,7 @@ class CommentsViewController: UIViewController {
     
     @IBAction func commentsPostButton(sender: AnyObject) {
         
-        let postData = postArray[indexPath.row]
+        let postData = postArray[indexPathSegue]
         
         let postRef = FIRDatabase.database().reference()
 
@@ -69,9 +69,9 @@ class CommentsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let postData = postArray[indexPath.row]
+/*        let postData = postArray[indexPathSegue]
         
-/*        let imageString = postData.imageString
+        let imageString = postData.imageString
         let name = postData.name
         let caption = postData.caption
         let time = (postData.date?.timeIntervalSinceReferenceDate)! as NSTimeInterval

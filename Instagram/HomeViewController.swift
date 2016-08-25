@@ -175,7 +175,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         let commentsViewController:CommentsViewController = segue.destinationViewController as! CommentsViewController
         
-        commentsViewController.postArray[indexPathSegue.row] = self.postArray[indexPathSegue!.row]
+        commentsViewController.postArray[indexPathSegue] = self.postArray[indexPathSegue]
         
     }
     

@@ -157,29 +157,30 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     func commentsButton(sender: UIButton, event:UIEvent) {
         
-        // タップされたセルのインデックスを求める
+        performSegueWithIdentifier("cellSegue", sender: nil)
+        
         let touch = event.allTouches()?.first
         let point = touch!.locationInView(self.tableView)
         let indexPath = tableView.indexPathForRowAtPoint(point)
         
-        // 配列からタップされたインデックスのデータを取り出す
-        let postData = postArray[indexPath!.row]
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
         
-        let imageString = postData.imageString
+        let commentsViewController:CommentsViewController = segue.destinationViewController as! CommentsViewController
         
-        // imageStringのStringデータを画像にデコードする
-        let image: NSData? = NSData(base64EncodedString:imageString!, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
+        commentsViewController.indexPath = self.indexPath
         
-        
-        // CommentsViewControllerに遷移する
-        let storyboard: UIStoryboard = self.storyboard!
-        let nextView = storyboard.instantiateViewControllerWithIdentifier("Comments") as! CommentsViewController
-        
-        CommentsViewController.image = image
-        
-        self.presentViewController(nextView, animated: true, completion: nil)
+    }
+    
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
 
- 
+    
+    @IBAction func unwind(segue: UIStoryboardSegue) {
     }
     
     /*

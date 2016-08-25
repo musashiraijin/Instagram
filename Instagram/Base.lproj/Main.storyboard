@@ -19,6 +19,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="HGT-Dr-KmZ" kind="show" identifier="cellSegue" id="2Fv-Ga-98I"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -44,6 +47,7 @@
                                 <state key="normal" title="コメント投稿" backgroundImage="btn"/>
                                 <connections>
                                     <action selector="commentsPostButton:" destination="HGT-Dr-KmZ" eventType="touchUpInside" id="LR7-oj-tUd"/>
+                                    <segue destination="YCY-SD-IPW" kind="unwind" unwindAction="unwind:" id="tYg-0J-yX4"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DI7-nE-bKC">
@@ -88,8 +92,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ARW-1b-15h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="YCY-SD-IPW" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="9" y="940"/>
+            <point key="canvasLocation" x="22" y="997"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="BtC-f8-7nU">

@@ -30,6 +30,7 @@ class PostData: NSObject {
     
     
     init(snapshot: FIRDataSnapshot, myId: String) {
+        
         id = snapshot.key
         
         let valueDictionary = snapshot.value as! [String: AnyObject]

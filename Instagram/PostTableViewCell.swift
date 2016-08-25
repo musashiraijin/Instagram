@@ -22,9 +22,8 @@ class PostTableViewCell: UITableViewCell {
     // コメント投稿ボタンのアウトレット
     @IBOutlet weak var commentsInput: UIButton!
     
-
-    
     var postData: PostData!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -33,20 +33,20 @@ class CommentsViewController: UIViewController {
     
     @IBAction func commentsPostButton(sender: AnyObject) {
         
-        let postData = postArray[indexPathSegue]
+//        let postData = postArray[indexPathSegue]
         
         let postRef = FIRDatabase.database().reference()
 
-        let imageString = postData.imageString
+/*        let imageString = postData.imageString
         let name = postData.name
         let caption = postData.caption
         let time = (postData.date?.timeIntervalSinceReferenceDate)! as NSTimeInterval
         let likes = postData.likes
         let commentsName = postData.commentsName
         let comments = postData.comments
-
+*/
         // 辞書を作成してFirebaseに保存する
-        let post = ["caption": caption!, "image": imageString!, "name": name!, "time": time, "likes": likes, "commentsName": commentsName, "comments": comments]
+        let post = ["caption": caption!, "image": imageString!, "name": name!, "time": time, "likes": likes, "commentsName": commentsInputName, "comments": commentsTextField]
         
         postRef.child(postData.id!).setValue(post)
         
@@ -69,7 +69,9 @@ class CommentsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-/*        let postData = postArray[indexPathSegue]
+        let postData = postArray[indexPathSegue]
+        
+        let postRef = FIRDatabase.database().reference()
         
         let imageString = postData.imageString
         let name = postData.name
@@ -78,7 +80,8 @@ class CommentsViewController: UIViewController {
         let likes = postData.likes
         let commentsName = postData.commentsName
         let comments = postData.comments
-*/
+
+        
         
         // Do any additional setup after loading the view.
     }

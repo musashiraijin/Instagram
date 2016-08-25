@@ -27,6 +27,7 @@ class CommentsViewController: UIViewController {
     var textField: UITextField!
     
     let indexPath: Int = 0
+    var indexPathSegue = 0
     var postArray: [PostData] = []
 
     
@@ -35,10 +36,12 @@ class CommentsViewController: UIViewController {
         
         let postRef = FIRDatabase.database().reference()
         
+        let postData = postArray[indexPathSegue.row]
+        
         // 辞書を作成してFirebaseに保存する
         let postData = ["caption": textField.text!, "image": image!, "name": name!, "commentsName": commentsInputName.text!, "comments": commentsTextField.text!]
         
-        postRef.childByAutoId().setValue(postData)
+        postRef.child("posts").childByAutoId().setValue(postData)
         
         
         // HUDで投稿完了を表示する

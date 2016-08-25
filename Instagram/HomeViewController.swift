@@ -18,6 +18,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     var postArray: [PostData] = []
     var imageView: UIImageView!
+    var indexPathSegue = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -163,13 +164,14 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let point = touch!.locationInView(self.tableView)
         let indexPath = tableView.indexPathForRowAtPoint(point)
         
+        let indexPathSegue = indexPath
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
         
         let commentsViewController:CommentsViewController = segue.destinationViewController as! CommentsViewController
         
-        commentsViewController.indexPath = self.indexPath
+        commentsViewController.indexPathSegue = self.indexPathSegue
         
     }
     

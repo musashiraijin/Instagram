@@ -22,33 +22,28 @@ class CommentsViewController: UIViewController {
     @IBOutlet weak var commentsTextField: UITextField!
     
     var image: UIImage?
+    var imageString: UIImage?
     var name: String?
     var caption: String?
     var textField: UITextField!
+    var likes: [String] = []
+    var time = NSDate.timeIntervalSinceReferenceDate()
     
-    let indexPath: Int = 0
+    var commentsName: String?
+    var comments: String?
+    
     var indexPathSegue = 0
-    var postArray: [PostData] = []
-    let postData: [PostData] = []
+    
+    var postRef: FIRDatabaseReference!
+    
+    var postData: PostData!
     
     @IBAction func commentsPostButton(sender: AnyObject) {
         
-//        let postData = postArray[indexPathSegue]
-        
-        let postRef = FIRDatabase.database().reference()
-
-/*        let imageString = postData.imageString
-        let name = postData.name
-        let caption = postData.caption
-        let time = (postData.date?.timeIntervalSinceReferenceDate)! as NSTimeInterval
-        let likes = postData.likes
-        let commentsName = postData.commentsName
-        let comments = postData.comments
-*/
         // 辞書を作成してFirebaseに保存する
-        let post = ["caption": caption!, "image": imageString!, "name": name!, "time": time, "likes": likes, "commentsName": commentsInputName, "comments": commentsTextField]
+        let post = ["commentsName": commentsInputName, "comments": commentsTextField]
         
-        postRef.child(postData.id!).setValue(post)
+        self.postRef.child(postData.id!).setValue(post)
         
         
         // HUDで投稿完了を表示する
@@ -69,19 +64,29 @@ class CommentsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let postData = postArray[indexPathSegue]
+//        self.postData.id = snapshot.key
         
-        let postRef = FIRDatabase.database().reference()
+        self.postRef = FIRDatabase.database().reference()
         
-        let imageString = postData.imageString
-        let name = postData.name
-        let caption = postData.caption
-        let time = (postData.date?.timeIntervalSinceReferenceDate)! as NSTimeInterval
-        let likes = postData.likes
-        let commentsName = postData.commentsName
-        let comments = postData.comments
-
+        self.postRef.observeEventType(.ChildAdded, withBlock: { snapshot in
+            if let commentsName = snapshot.value!.objectForKey("commentsName") as? String,
+                       comments = snapshot.value!.objectForKey("comments") as? String {
+                
+            }
+            
+        })
         
+//        commentsName = postData.commentsName
+//        comments = postData.comments
+        
+        
+//        titleTextField.text = task.title
+//        contentsTextView.text = task.contents
+        
+        // Taskクラスのカテゴリ入力欄を追加。
+//        categoryTextField.text = task.category
+        
+//        datePicker.date = task.date
         
         // Do any additional setup after loading the view.
     }

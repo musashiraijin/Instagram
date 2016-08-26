@@ -158,24 +158,22 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     func commentsButton(sender: UIButton, event:UIEvent) {
         
-        performSegueWithIdentifier("cellSegue", sender: nil)
-        
         // タップされたセルのインデックスを求める
         let touch = event.allTouches()?.first
         let point = touch!.locationInView(self.tableView)
         let indexPath = tableView.indexPathForRowAtPoint(point)
         
-        let indexPathSegue = indexPath
+        indexPathSegue = indexPath!.row
         
-        // 配列からタップされたインデックスのデータを取り出す
-//        let postData = postArray[indexPathSegue!.row]
+        performSegueWithIdentifier("cellSegue", sender: nil)
+        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
         
         let commentsViewController:CommentsViewController = segue.destinationViewController as! CommentsViewController
         
-        commentsViewController.postArray[indexPathSegue] = self.postArray[indexPathSegue]
+        commentsViewController.postData = self.postArray[indexPathSegue]
         
     }
     
@@ -187,6 +185,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     
     @IBAction func unwind(segue: UIStoryboardSegue) {
+        
+        viewWillAppear(false)
+        
     }
     
     /*

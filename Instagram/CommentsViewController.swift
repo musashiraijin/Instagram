@@ -38,6 +38,7 @@ class CommentsViewController: UIViewController {
     
     var postData: PostData!
     
+    
     @IBAction func commentsPostButton(sender: AnyObject) {
         
         // 辞書を作成してFirebaseに保存する
@@ -51,12 +52,16 @@ class CommentsViewController: UIViewController {
         
         // 全てのモーダルを閉じる
         UIApplication.sharedApplication().keyWindow?.rootViewController?.dismissViewControllerAnimated(true, completion: nil)
+        
+        return
     }
     
     @IBAction func commentsCancelButton(sender: AnyObject) {
         
         // 画面を閉じる
         dismissViewControllerAnimated(true, completion: nil)
+        
+        return
         
     }
     
@@ -76,19 +81,6 @@ class CommentsViewController: UIViewController {
             
         })
         
-//        commentsName = postData.commentsName
-//        comments = postData.comments
-        
-        
-//        titleTextField.text = task.title
-//        contentsTextView.text = task.contents
-        
-        // Taskクラスのカテゴリ入力欄を追加。
-//        categoryTextField.text = task.category
-        
-//        datePicker.date = task.date
-        
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {

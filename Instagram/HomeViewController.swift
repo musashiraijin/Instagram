@@ -180,13 +180,13 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        tableView.reloadData()
+        
     }
 
     
     @IBAction func unwind(segue: UIStoryboardSegue) {
         
-        viewWillAppear(false)
+        viewDidLoad()
         
     }
     

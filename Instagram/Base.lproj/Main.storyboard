@@ -54,8 +54,7 @@
                                 </constraints>
                                 <state key="normal" title="キャンセル" backgroundImage="btn"/>
                                 <connections>
-                                    <action selector="commentsCancelButton:" destination="HGT-Dr-KmZ" eventType="touchUpInside" id="Ofj-r6-bbf"/>
-                                    <segue destination="YCY-SD-IPW" kind="unwind" unwindAction="unwind:" id="NVX-yj-rTV"/>
+                                    <segue destination="YCY-SD-IPW" kind="unwind" unwindAction="unwind:" id="rOT-7l-tDw"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="あなたの表示名を入力" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dWq-BS-X7z">

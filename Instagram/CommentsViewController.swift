@@ -43,7 +43,7 @@ class CommentsViewController: UIViewController {
         // 辞書を作成してFirebaseに保存する
         let post = ["commentsName": commentsInputName, "comments": commentsTextField]
         
-        self.postRef.child(postData.id!).setValue(post)
+        self.postRef.child(CommonConst.PostPATH).setValue(post)
         
         
         // HUDで投稿完了を表示する

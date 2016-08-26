@@ -44,10 +44,6 @@ class PostData: NSObject {
         
         caption = valueDictionary["caption"] as? String
         
- //       commentsName = (valueDictionary["commentsName"] as? String)!
-        
-//        comments = (valueDictionary["comments"] as? String)!
-        
         
         // コメント入力した人の表示名
         if let commentsName = valueDictionary["commentsName"] as? String {

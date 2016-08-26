@@ -42,7 +42,7 @@ class CommentsViewController: UIViewController {
     @IBAction func commentsPostButton(sender: AnyObject) {
         
         // 辞書を作成してFirebaseに保存する
-        let post = ["commentsName": commentsInputName, "comments": commentsTextField]
+        let post = ["commentsName": commentsInputName.text!, "comments": commentsTextField.text!]
         
         self.postRef.child(CommonConst.PostPATH).setValue(post)
         
@@ -51,9 +51,9 @@ class CommentsViewController: UIViewController {
         SVProgressHUD.showSuccessWithStatus("投稿しました")
         
         // 全てのモーダルを閉じる
-        UIApplication.sharedApplication().keyWindow?.rootViewController?.dismissViewControllerAnimated(true, completion: nil)
+//        UIApplication.sharedApplication().keyWindow?.rootViewController?.dismissViewControllerAnimated(true, completion: nil)
         
-        return
+        
     }
     
     @IBAction func commentsCancelButton(sender: AnyObject) {
@@ -61,9 +61,8 @@ class CommentsViewController: UIViewController {
         // 画面を閉じる
         dismissViewControllerAnimated(true, completion: nil)
         
-        return
         
-    }
+        }
     
     
     override func viewDidLoad() {

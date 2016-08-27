@@ -64,16 +64,7 @@ class PostTableViewCell: UITableViewCell {
         let commentsNameData = postData.commentsName
         let commentsData = postData.comments
         
-        // commentsNameDataとcommentsDataがnilの時の表示
-/*        if (commentsNameData == nil) || (commentsData == nil) {
-        
-            commentsNameData = "０人"
-            commentsData = "コメントなし"
-            commentsLabel.text = "\(commentsNameData) : \(commentsData)"
-            
-        } else {
-*/
-            commentsLabel.text = "\(commentsNameData) : \(commentsData)"
+        commentsLabel.text = "\(commentsNameData) : \(commentsData)"
             
 //        }
         

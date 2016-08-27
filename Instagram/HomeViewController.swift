@@ -186,7 +186,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     @IBAction func unwind(segue: UIStoryboardSegue) {
         
-        viewDidLoad()
+        self.viewDidLoad()
         
     }
     

@@ -38,24 +38,28 @@ class CommentsViewController: UIViewController {
     
     var postData: PostData!
     
+    var postArray: [PostData] = []
     
     @IBAction func commentsPostButton(sender: AnyObject) {
         
-        // 辞書を作成してFirebaseに保存する
-        let post = ["commentsName": commentsInputName.text!, "comments": commentsTextField.text!]
-        
-        self.postRef.child(CommonConst.PostPATH).setValue(post)
-        
-        
         // HUDで投稿完了を表示する
         SVProgressHUD.showSuccessWithStatus("投稿しました")
-        
-        // 全てのモーダルを閉じる
-//        UIApplication.sharedApplication().keyWindow?.rootViewController?.dismissViewControllerAnimated(true, completion: nil)
-        
-        
+//        performSegueWithIdentifier("backSegue", sender: nil)
+    
     }
     
+
+/*    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
+        
+        let homeViewController:HomeViewController = segue.destinationViewController as! HomeViewController
+        
+        homeViewController.postArray = self.PostData(snapshot: snapshot, myId: uid)
+    
+    }
+
+*/
+
+
     @IBAction func commentsCancelButton(sender: AnyObject) {
         
         // 画面を閉じる
@@ -65,21 +69,50 @@ class CommentsViewController: UIViewController {
         }
     
     
+    override func viewWillDisappear(animated: Bool) {
+        
+        // 全てのモーダルを閉じる
+        UIApplication.sharedApplication().keyWindow?.rootViewController?.dismissViewControllerAnimated(true, completion: nil)
+        
+        super.viewWillDisappear(animated)
+        
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
 //        self.postData.id = snapshot.key
         
+        self.postData.commentsName = commentsInputName.text!
+        self.postData.comments = commentsTextField.text!
+        
+        
         self.postRef = FIRDatabase.database().reference()
         
-        self.postRef.observeEventType(.ChildAdded, withBlock: { snapshot in
-            if let commentsName = snapshot.value!.objectForKey("commentsName") as? String,
-                       comments = snapshot.value!.objectForKey("comments") as? String {
+        
+        FIRDatabase.database().reference().child(CommonConst.PostPATH).observeEventType(.ChildAdded, withBlock: { snapshot in
+            
+            // PostDataクラスを生成して受け取ったデータを設定する
+            if let uid = FIRAuth.auth()?.currentUser?.uid {
+                let postData = PostData(snapshot: snapshot, myId: uid)
+                self.postArray.insert(postData, atIndex: 0)
+                
+            if var commentsName = snapshot.value!.objectForKey("commentsName") as? String,
+                    comments = snapshot.value!.objectForKey("comments") as? String {
+                    
+                    let post = ["commentsName": self.postData.commentsName, "comments": self.postData.comments]
+                    
+                    self.postRef.childByAutoId().setValue(post)
+                    
+                }
+
+                
                 
             }
-            
         })
-        
+
+ 
     }
 
     override func didReceiveMemoryWarning() {

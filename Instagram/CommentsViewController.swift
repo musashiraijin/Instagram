@@ -44,21 +44,8 @@ class CommentsViewController: UIViewController {
         
         // HUDで投稿完了を表示する
         SVProgressHUD.showSuccessWithStatus("投稿しました")
-//        performSegueWithIdentifier("backSegue", sender: nil)
-    
     }
     
-
-/*    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
-        
-        let homeViewController:HomeViewController = segue.destinationViewController as! HomeViewController
-        
-        homeViewController.postArray = self.PostData(snapshot: snapshot, myId: uid)
-    
-    }
-
-*/
-
 
     @IBAction func commentsCancelButton(sender: AnyObject) {
         
@@ -96,7 +83,7 @@ class CommentsViewController: UIViewController {
             // PostDataクラスを生成して受け取ったデータを設定する
             if let uid = FIRAuth.auth()?.currentUser?.uid {
                 let postData = PostData(snapshot: snapshot, myId: uid)
-                self.postArray.insert(postData, atIndex: 0)
+//                self.postArray.insert(postData, atIndex: 0)
                 
             if var commentsName = snapshot.value!.objectForKey("commentsName") as? String,
                     comments = snapshot.value!.objectForKey("comments") as? String {

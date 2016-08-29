@@ -22,8 +22,6 @@ class PostTableViewCell: UITableViewCell {
     // コメント投稿ボタンのアウトレット
     @IBOutlet weak var commentsInput: UIButton!
     
-    var postData: PostData!
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -38,7 +36,7 @@ class PostTableViewCell: UITableViewCell {
     
     
     // 表示されるときに呼ばれるメソッドをオーバーライドしてデータをUIに反映する
-    func SetPostData(postData: PostData) {
+    func setPostData(postData: PostData) {
         
         postImageView.image = postData.image
         captionLabel.text = "\(postData.name!) : \(postData.caption!)"
@@ -61,16 +59,14 @@ class PostTableViewCell: UITableViewCell {
             likeButton.setImage(buttonImage, forState: UIControlState.Normal)
         }
         
-        // コメント表示
-        let commentsNameData = postData.commentsName
-        let commentsData = postData.comments
+        //コメント
+        var commentsText: String = ""
+        // (課題)コメント者と名前を追加
+        for i in 0..<postData.comments.count {
+            commentsText = commentsText + postData.comments[i]["name"]! + " : " + postData.comments[i]["comment"]! + "\n"
+        }
+        commentsLabel.text = commentsText
         
-        commentsLabel.text = "\(commentsNameData) : \(commentsData)"
-            
-//        }
-        
-        
-//        super.layoutSubviews()
     }
     
 }

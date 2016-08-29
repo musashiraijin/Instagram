@@ -83,7 +83,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         // セルを取得してデータを設定する
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! PostTableViewCell
-        cell.setPostData(postArray[indexPath.row])
+        cell.SetPostData(postArray[indexPath.row])
         
         // セル内のボタンのアクションをソースコードで設定する
         cell.likeButton.addTarget(self, action:#selector(handleButton(_:event:)), forControlEvents:  UIControlEvents.TouchUpInside)

@@ -37,11 +37,8 @@ class PostTableViewCell: UITableViewCell {
     }
     
     
-    
-    
-    
     // 表示されるときに呼ばれるメソッドをオーバーライドしてデータをUIに反映する
-    func setPostData(postData: PostData) {
+    func SetPostData(postData: PostData) {
         
         postImageView.image = postData.image
         captionLabel.text = "\(postData.name!) : \(postData.caption!)"
@@ -73,7 +70,7 @@ class PostTableViewCell: UITableViewCell {
 //        }
         
         
-        super.layoutSubviews()
+//        super.layoutSubviews()
     }
     
 }

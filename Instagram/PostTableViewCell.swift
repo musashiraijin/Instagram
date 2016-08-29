@@ -36,8 +36,12 @@ class PostTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    
+    
+    
+    
     // 表示されるときに呼ばれるメソッドをオーバーライドしてデータをUIに反映する
-    override func layoutSubviews() {
+    func setPostData(postData: PostData) {
         
         postImageView.image = postData.image
         captionLabel.text = "\(postData.name!) : \(postData.caption!)"

@@ -74,10 +74,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return postArray.count
@@ -87,7 +83,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         // セルを取得してデータを設定する
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! PostTableViewCell
-        cell.postData = postArray[indexPath.row]
+        cell.setPostData(postArray[indexPath.row])
         
         // セル内のボタンのアクションをソースコードで設定する
         cell.likeButton.addTarget(self, action:#selector(handleButton(_:event:)), forControlEvents:  UIControlEvents.TouchUpInside)
@@ -188,6 +184,11 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         self.viewDidLoad()
         
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
     /*

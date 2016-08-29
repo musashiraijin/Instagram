@@ -36,30 +36,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DI7-nE-bKC">
-                                <rect key="frame" x="150" y="210" width="300" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="ZIq-3h-9iU"/>
-                                </constraints>
-                                <state key="normal" title="キャンセル" backgroundImage="btn"/>
-                                <connections>
-                                    <segue destination="YCY-SD-IPW" kind="unwind" unwindAction="unwind:" id="AAP-36-LqS"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="あなたの表示名を入力" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dWq-BS-X7z">
-                                <rect key="frame" x="70" y="70" width="460" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="コメントを入力" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D0v-7l-7Lt">
                                 <rect key="frame" x="70" y="110" width="460" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="460" id="TOh-Pd-dMU"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5le-MI-9jq">
                                 <rect key="frame" x="150" y="160" width="300" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="Ruy-XM-HFc"/>
+                                    <constraint firstAttribute="width" constant="300" id="Tmv-LA-LaR"/>
                                 </constraints>
                                 <state key="normal" title="コメント投稿" backgroundImage="btn"/>
                                 <connections>
@@ -70,21 +58,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="5le-MI-9jq" firstAttribute="top" secondItem="D0v-7l-7Lt" secondAttribute="bottom" constant="20" id="2k4-88-822"/>
-                            <constraint firstItem="DI7-nE-bKC" firstAttribute="centerX" secondItem="dWq-BS-X7z" secondAttribute="centerX" id="74q-EF-8nN"/>
-                            <constraint firstItem="D0v-7l-7Lt" firstAttribute="centerX" secondItem="dWq-BS-X7z" secondAttribute="centerX" id="HoI-HP-N4B"/>
-                            <constraint firstItem="dWq-BS-X7z" firstAttribute="leading" secondItem="iVO-QW-kFX" secondAttribute="leadingMargin" constant="50" id="KZT-Mu-nSI"/>
-                            <constraint firstItem="5le-MI-9jq" firstAttribute="centerX" secondItem="dWq-BS-X7z" secondAttribute="centerX" id="Nc4-bV-vAS"/>
-                            <constraint firstItem="DI7-nE-bKC" firstAttribute="top" secondItem="5le-MI-9jq" secondAttribute="bottom" constant="10" id="PVg-G9-M0r"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="D0v-7l-7Lt" secondAttribute="trailing" constant="50" id="UVi-Rr-hyp"/>
-                            <constraint firstItem="dWq-BS-X7z" firstAttribute="top" secondItem="Mdy-ef-g46" secondAttribute="bottom" constant="50" id="gZJ-T5-r5f"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="dWq-BS-X7z" secondAttribute="trailing" constant="50" id="qhi-wh-cua"/>
-                            <constraint firstItem="D0v-7l-7Lt" firstAttribute="leading" secondItem="iVO-QW-kFX" secondAttribute="leadingMargin" constant="50" id="tKC-0J-3WD"/>
-                            <constraint firstItem="D0v-7l-7Lt" firstAttribute="top" secondItem="dWq-BS-X7z" secondAttribute="bottom" constant="10" id="xc6-xi-8WJ"/>
+                            <constraint firstItem="5le-MI-9jq" firstAttribute="top" secondItem="D0v-7l-7Lt" secondAttribute="bottom" constant="20" id="RCR-3y-DSO"/>
+                            <constraint firstItem="D0v-7l-7Lt" firstAttribute="centerX" secondItem="iVO-QW-kFX" secondAttribute="centerX" id="hx5-tA-Lhr"/>
+                            <constraint firstItem="D0v-7l-7Lt" firstAttribute="top" secondItem="Mdy-ef-g46" secondAttribute="bottom" constant="90" id="mjW-Tc-lvt"/>
+                            <constraint firstItem="5le-MI-9jq" firstAttribute="centerX" secondItem="iVO-QW-kFX" secondAttribute="centerX" id="yKz-YK-wgV"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="commentsInputName" destination="dWq-BS-X7z" id="jK6-Xg-3u8"/>
                         <outlet property="commentsTextField" destination="D0v-7l-7Lt" id="PNk-mY-uHC"/>
                     </connections>
                 </viewController>
@@ -201,7 +181,6 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="PVL-nA-Mb0" id="yRW-4c-ptM"/>
-                        <segue destination="HGT-Dr-KmZ" kind="show" identifier="cellSegue" id="8k7-Bp-IIp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rlT-me-vm2" userLabel="First Responder" sceneMemberID="firstResponder"/>

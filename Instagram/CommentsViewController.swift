@@ -15,89 +15,49 @@ import SVProgressHUD
 class CommentsViewController: UIViewController {
     
     
-    // コメント投稿者名
-    @IBOutlet weak var commentsInputName: UITextField!
+    var postData:PostData!
     
     // コメント文
     @IBOutlet weak var commentsTextField: UITextField!
     
-    var image: UIImage?
-    var imageString: UIImage?
-    var name: String?
-    var caption: String?
-    var textField: UITextField!
-    var likes: [String] = []
-    var time = NSDate.timeIntervalSinceReferenceDate()
-    
-    var commentsName: String?
-    var comments: String?
-    
-    var indexPathSegue = 0
-    
-    var postRef: FIRDatabaseReference!
-    
-    var postData: PostData!
-    
-    var postArray: [PostData] = []
     
     @IBAction func commentsPostButton(sender: AnyObject) {
         
-        // HUDで投稿完了を表示する
-        SVProgressHUD.showSuccessWithStatus("投稿しました")
-    }
-    
-
-    @IBAction func commentsCancelButton(sender: AnyObject) {
-        
-        // 画面を閉じる
-        dismissViewControllerAnimated(true, completion: nil)
-        
-        
+        /// Firebaseに保存するデータの準備
+        //現在のユーザーのユニークIDを取得
+        if let uid = FIRAuth.auth()?.currentUser?.uid {
+            if let displayName = FIRAuth.auth()?.currentUser?.displayName {
+                
+                let comment = ["uid": uid, "name": displayName, "comment": commentsTextField.text!]
+                postData.comments.append(comment)
+                let imageString = postData.imageString
+                let name = postData.name
+                let caption = postData.caption
+                let time = (postData.date?.timeIntervalSinceReferenceDate)! as NSTimeInterval
+                let likes = postData.likes
+                let comments = postData.comments
+                
+                //辞書を作成してFirebaseに保存する
+                let post = ["caption": caption!, "image": imageString!, "name": name!, "time": time, "likes": likes, "comments": comments]
+                print(postData.comments)
+                
+                let postRef = FIRDatabase.database().reference().child(CommonConst.PostPATH)
+                postRef.child(postData.id!).setValue(post)
+            }
         }
-    
-    
-    override func viewWillDisappear(animated: Bool) {
         
-        // 全てのモーダルを閉じる
-        UIApplication.sharedApplication().keyWindow?.rootViewController?.dismissViewControllerAnimated(true, completion: nil)
-        
-        super.viewWillDisappear(animated)
-        
+        //CommentsViewControllerを閉じる
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print( postData.id)
         
-//        self.postData.id = snapshot.key
-        
-        self.postData.commentsName = commentsInputName.text!
-        self.postData.comments = commentsTextField.text!
-        
-        
-        self.postRef = FIRDatabase.database().reference()
-        
-        
-        FIRDatabase.database().reference().child(CommonConst.PostPATH).observeEventType(.ChildAdded, withBlock: { snapshot in
-            
-            // PostDataクラスを生成して受け取ったデータを設定する
-            if let uid = FIRAuth.auth()?.currentUser?.uid {
-                let postData = PostData(snapshot: snapshot, myId: uid)
-//                self.postArray.insert(postData, atIndex: 0)
-                
-            if var commentsName = snapshot.value!.objectForKey("commentsName") as? String,
-                    comments = snapshot.value!.objectForKey("comments") as? String {
-                    
-                    let post = ["commentsName": self.postData.commentsName, "comments": self.postData.comments]
-                    
-                    self.postRef.childByAutoId().setValue(post)
-                    
-                }
-
-                
-                
-            }
-        })
+        // 背景をタップしたらdismissKeyboardメソッドを呼ぶように設定する。
+        let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self,action: #selector(CommentsViewController.dismissKeyboard))
+        self.view.addGestureRecognizer(tapGesture)
 
  
     }
@@ -107,6 +67,11 @@ class CommentsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    func dismissKeyboard(){
+        //キーボードを閉じる
+        view.endEditing(true)
+    }
 
     /*
     // MARK: - Navigation

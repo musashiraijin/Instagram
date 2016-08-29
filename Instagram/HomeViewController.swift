@@ -89,7 +89,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.likeButton.addTarget(self, action:#selector(handleButton(_:event:)), forControlEvents:  UIControlEvents.TouchUpInside)
         
         // セル内のコメント投稿ボタンのアクションをソースコードで設定する
-        cell.commentsInput.addTarget(self, action:#selector(commentsButton(_:event:)), forControlEvents:  UIControlEvents.TouchUpInside)
+        cell.commentsInput.addTarget(self, action:#selector(handleCommentButton(_:event:)), forControlEvents:  UIControlEvents.TouchUpInside)
         
         // UILabelの行数が変わっている可能性があるので再描画させる
         cell.layoutIfNeeded()
@@ -152,7 +152,27 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
 
-    func commentsButton(sender: UIButton, event:UIEvent) {
+    // セル内のコメントボタンがタップされた時に呼ばれるメソッド
+    func handleCommentButton(sender: UIButton, event: UIEvent) {
+        
+        // タップされたセルのインデックスを求める
+        let touch = event.allTouches()?.first
+        let point = touch!.locationInView(self.tableView)
+        let indexPath = tableView.indexPathForRowAtPoint(point)
+        
+        // 配列からタップされたインデックスのデータを取り出す
+        let postData = postArray[indexPath!.row]
+        
+        let commentsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("Comments") as! CommentsViewController
+        
+        //タップされたセルに入っているデータをcommentViewControllerのpostDataプロパティに受け渡す。
+        commentsViewController.postData = postData
+        
+        self.presentViewController(commentsViewController, animated: true, completion: nil)
+    }
+    
+    
+/*    func commentsButton(sender: UIButton, event:UIEvent) {
         
         // タップされたセルのインデックスを求める
         let touch = event.allTouches()?.first
@@ -172,9 +192,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         commentsViewController.postData = self.postArray[indexPathSegue]
         
     }
+*/
     
-    
-    override func viewWillAppear(animated: Bool) {
+/*    override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
     }
@@ -190,7 +210,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+*/    
     /*
     // MARK: - Navigation
 

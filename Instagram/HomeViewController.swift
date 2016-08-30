@@ -172,45 +172,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     
-/*    func commentsButton(sender: UIButton, event:UIEvent) {
-        
-        // タップされたセルのインデックスを求める
-        let touch = event.allTouches()?.first
-        let point = touch!.locationInView(self.tableView)
-        let indexPath = tableView.indexPathForRowAtPoint(point)
-        
-        indexPathSegue = indexPath!.row
-        
-        performSegueWithIdentifier("cellSegue", sender: nil)
-        
-    }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
-        
-        let commentsViewController:CommentsViewController = segue.destinationViewController as! CommentsViewController
-        
-        commentsViewController.postData = self.postArray[indexPathSegue]
-        
-    }
-*/
-    
-/*    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-    }
-
-    
-    @IBAction func unwind(segue: UIStoryboardSegue) {
-        
-        self.viewDidLoad()
-        
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-*/    
     /*
     // MARK: - Navigation
 
